@@ -1,0 +1,51 @@
+<style></style>
+<header class="main">
+    <div class="info">
+      <div class="title">Project title</div>
+      <div class="last-update">Last update: <span class="value">1 minute ago</span></div>
+    </div>
+    <div class="toolbar">
+      <div id="save-btn" class="action">Save</div>
+      <div class="action">Settings</div>
+    </div>
+  </header>
+  <div class="main-layout">
+    <div class="result">
+      <iframe src="about:blank"></iframe>
+    </div>
+    <div class="splitter" data-splitter="yes"></div>
+    <div class="editors" data-tabs="yes">
+      <div class="tabs">
+        <div data-tab="html" class="tab tab-active"><span class="settings"></span>HTML <span id="html-filename" class="filename">(index.html)</span><span id="html-files" class="menu"></span></div><!--
+     --><div data-tab="css" class="tab"><span class="settings"></span>CSS <span id="css-filename" class="filename">(styles.css)</span><span id="css-files" class="menu"></span></div><!--
+     --><div data-tab="js" class="tab"><span class="settings"></span>JS <span id="js-filename" class="filename">(app.js)</span><span id="js-files" class="menu"></span></div>
+      </div>
+      <div class="pages">
+        <div data-page="html" class="page page-active">
+          <div class="editor-files" data-editor-files="html-editor" data-editor-files-menu="html-files" data-editor-files-filename="html-filename" data-editor-files-suffix="html">
+            <textarea id="file-1" data-filename="index.html">&lt;div class="test"&gt;&lt;/div&gt;</textarea>
+            <textarea id="file-2" data-filename="ajax.html">&lt;div class="ajax"&gt;AJAX!&lt;/div&gt;</textarea>
+          </div>
+          <div id="html-editor" class="editor"></div>
+        </div>
+        <div data-page="css" class="page">
+          <div class="editor-files" data-editor-files="css-editor" data-editor-files-menu="css-files" data-editor-files-filename="css-filename" data-editor-files-suffix="css">
+            <textarea id="file-1" data-filename="styles.css">.test { color: red; }</textarea>
+            <textarea id="file-2" data-filename="extra.css">.extra { color: yellow; }</textarea>
+          </div>
+          <div id="css-editor" class="editor"></div>
+        </div>
+        <div data-page="js" class="page">
+          <div class="editor-files" data-editor-files="js-editor" data-editor-files-menu="js-files" data-editor-files-filename="js-filename" data-editor-files-suffix="js">
+            <textarea id="file-1" data-filename="app.js">var test = '';</textarea>
+            <textarea id="file-2" data-filename="settings.js">var settings = '';</textarea>
+            <textarea id="file-3" data-filename="library-with-long-filename.js">// library</textarea>
+          </div>
+          <div id="js-editor" class="editor"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="status">
+    
+  </footer>

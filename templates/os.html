@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud OS</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
+
+      
+
+  
+</head>
+
+<body>
+
+  <style>
+    html {
+      background: url(http://wallpapercave.com/wp/NNo5yub.jpg);
+      background-size: cover;
+      height: 100vh;
+      widht: 100vw;
+      -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+          overflow: hidden;
+    
+    }
+    
+    body {
+      background: transparent;
+    }
+    
+    .TB {
+      position: absolute;
+      bottom: 0px;
+      width: 75%;
+      height: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+    }
+    
+    .Icon {
+      width: 65px;
+      height: 75px;
+      background: rgba(0, 0, 0, 0.0);
+      margin: 5px;
+      padding: 2px;
+      border-radius: 3px;
+      transition: all 0.15s ease-in-out;
+      border: 1px solid transparent;
+    }
+    
+    .Icon:Hover {
+      background: rgba(66, 165, 245, 0.15);
+      border: 1px solid #90CAF9;
+      cursor: pointer;
+    }
+    
+    .Icon:Active {
+      border: 1px solid #90CAF9;
+      background: rgba(66, 165, 245, 0.5);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+    
+    .TBStart {
+      border-radius: 50px;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      position: fixed;
+      bottom: 5px;
+      left: calc(50% - 20px);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .TBsStart {
+      border-radius: 50px;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      position: fixed;
+      bottom: 5px;
+      left: calc(50% - 10px);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .TBStart:hover {
+      transform: scale(1.15);
+      cursor: pointer;
+    }
+    
+    .TBsStart:hover {
+      transform: scale(1.15);
+      cursor: pointer;
+    }
+    
+    .ILabel {
+      width: 100%;
+      position: absolute;
+      top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 13px;
+      color: #fff;
+      text-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), -1px 0 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(0, 0, 0, 0.5), 0 -1px 0 rgba(0, 0, 0, 0.5), 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5);
+    }
+    
+    .LabelFolder {
+      height: 10px;
+      padding: 0em;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 13px;
+    }
+    
+    
+    /*Window*/
+    
+    #draggable {
+      width: 1024px;
+      height: 200px;
+      background: #4DB6AC;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    
+    #draggable2 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    
+    #draggable3 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable4 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable5 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable6 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable7 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable8 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable9 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #draggable10 {
+      width: 1024px;
+      height: 200px;
+      background: #FFB300;
+      border-radius: 3px;
+      margin-left: calc(50% - 512px);
+      margin-top: 30px;
+    }
+    #ComWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    
+    #NoteWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    
+    #NedWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #CalWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #PaintWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #GalWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #VidWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #PeWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #TodoWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    #GameWin {
+      position: fixed;
+      left: calc(50% - 512px);
+      top: 5%;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      overflow:hidden;
+    }
+    
+    .tb {
+      width: 1000px;
+      transition: all 0.5s ease-in-out;
+    }
+    
+    .ctrlbar {
+      width: 100%;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .filler {
+      height: 90px;
+    }
+    
+    .ct {
+      background: #fff;
+    }
+    
+    .Title {
+      color: #fff;
+      font-size: 35px;
+      font-family: Roboto;
+      font-weight: 300;
+      position: absolute;
+      top: 45px;
+      left: 35px;
+    }
+    
+    .ui-widget-content {
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    
+    .btn1 {
+      height: 30px;
+      width: 27px;
+      padding: 0px 0px 0px 0px;
+      margin-top: -7px;
+    }
+    
+    .bf {
+      width: 990px;
+      opacity: 0;
+      cursor: default;
+    }
+    
+    .mtm {
+      margin-top: -15px;
+    }
+    
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95) rotateX(25deg);
+      transition: all 0.3s ease-on-out;
+    }
+    
+    .cpos {
+      position: absolute;
+      margin-top: 10px;
+      right: 10px;
+    }
+    
+    .ContentText {
+      width: 970px;
+      height: 400px;
+      border-radius: 3px;
+      background: #ECEFF1;
+      position: absolute;
+      left: calc(50% - 485px);
+      max-height: 700px;
+      max-width: 970px;
+    }
+    
+    .ContentTexttwo {
+      padding:0;
+      margin:0;
+      width: 970px;
+      border-radius: 3px;
+      background: #ECEFF1;
+      position: relative;
+      left: calc(50% - 485px);
+      max-width: 970px;
+    }
+    
+    .TArea {
+      border: 0px;
+      height: 375px;
+      resize: none;
+      background: transparent;
+      outline: none;
+    }
+    
+    .AvatarStart {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width:75px;
+      border-radius: 100px;
+    }
+    
+    .Pp {
+      position: absolute;
+      left: 95px;
+      top: 5px;
+      font-size: 21px;
+    }
+    
+    .InfoA {
+      position: absolute;
+      left: 95px;
+      top: 50px;
+      font-size: 15px;
+      color: #212121;
+    }
+    
+    .ExitA {
+      position: absolute;
+      right: 10px;
+      top: 60px;
+    }
+    
+    .FTD {
+      width:100px;
+    }
+    
+    .svgIHD {
+      position: absolute; 
+      margin-top:-2px;
+      right: 25px;
+    }
+    
+    #ErrorWS {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      text-align: right;
+      color: red;
+    }
+    
+    /*  cal */
+    
+    @import url('https://fonts.googleapis.com/css?family=Rubik');
+    
+    #calculator {
+      border: 1px solid #ddd;
+      width: 330px;
+      height: 445px;
+      margin: 10px auto;
+      border-radius: 10px;
+      padding: 20px;
+    /*   background-color: #FF6766;  */
+      background-color: rgba(0,0,0,0.2); 
+        -webkit-box-shadow: 0px 50px 50px -45px rgba(0,0,0,0.85);
+    -moz-box-shadow: 0px 50px 50px -45px rgba(0,0,0,0.85);
+    box-shadow: 0px 50px 50px -45px rgba(0,0,0,0.85);
+    }
+    
+    .top span.clear {
+      float: left;
+      width: 45px;
+      height: 45px;
+    /*   border: 1px solid #ddd; */
+      border-radius: 50%;
+      margin-left: 8px;
+      text-align: center;
+      line-height: 35px;
+      text-align: center;
+      font-size: 1.4em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .top span.clear:hover {
+      color: #777;
+    }
+    
+    .top span.clear:active {
+      background-color: rgba(255,255,255,0.3);
+      float: left;
+      width: 45px;
+      height: 45px;
+    /*   border: 1px solid #555; */
+    /* //  border-radius: 50%; */
+      margin-left: 8px;
+      text-align: center;
+      line-height: 35px;
+      text-align: center;
+      font-size: 1.4em;
+      cursor: pointer;
+    }
+    
+    .top #display {
+      height: 45px;
+      width: 270px;
+      margin-left: 10px;
+      float: left;
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      line-height: 45px;
+      padding: 0 15px 0 10px;
+      font-size: 1.8em;
+      text-align: right;
+      overflow: hidden;
+      color: #eee;
+    }
+    
+    .keys span{
+      float: left;
+      width: 60px;
+      height: 60px;
+    /*   border: 1px solid #ddd; */
+      border-radius: 50%;
+      text-align: center;
+      margin: 6px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 2em;
+      cursor: pointer;
+    }
+    
+    .keys span:hover{
+      color: #777;
+    }
+    
+    sup {
+      font-size: 0.6em;
+      margin-left:2px;
+    }
+    
+    .unselectable {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+    }
+    
+    /* 
+    ========================
+          BUTTON
+    ========================
+    */
+    .btnc {
+      color: #eee;
+      transition: all 0.5s;
+      position: relative;
+      border-radius: 100%;
+      padding: 4px 0;
+    }
+    .btnc::active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    .btnc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgba(255,255,255,0.2);
+      transition: all 0.3s;
+      border-radius: 100%;
+    }
+    .btnc:hover::before {
+      opacity: 0 ;
+      transform: scale(0.5,0.5);
+    }
+    .btnc::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.5);
+      transform: scale(1.2,1.2);
+      border-radius: 100%;
+    }
+    .btnc:hover::after {
+      opacity: 1;
+      transform: scale(1,1);
+    }
+    
+    
+    /*---- paint ---*/
+    
+    a, a:visited, a:focus {
+      text-decoration: none;
+      cursor: pointer;
+      color: #eee;
+      transition: all 0.5s ease;
+    }
+    
+    a:hover {
+      color: #00b16a;
+    }
+    
+    canvas {
+      cursor: crosshair;
+    }
+    
+    #control {
+      position: absolute;
+      display: block;
+      -webkit-transform: translate(0, -100%);
+              transform: translate(0, -100%);
+      top: 100%;
+      width: 100%;
+      height: 210px;
+      background: #222;
+      border-top: 1px solid;
+      border-color: #00b16a;
+    }
+    
+    .container {
+      position: relative;
+      width: 90%;
+      height: 170px;
+      top: 20px;
+      margin: auto auto;
+    }
+    
+    .heading {
+      position: relative;
+      font-size: 30px;
+      width: 100%;
+      color: rgba(238, 238, 238, 0.75);
+      font-family: "Sofia", cursive;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+      border-bottom: 1px dashed rgba(238, 238, 238, 0.1);
+    }
+    
+    .subheading {
+      position: absolute;
+      font-size: 14px;
+      top: 16px;
+      width: 100%;
+      text-align: right;
+      color: rgba(238, 238, 238, 0.75);
+      font-family: "Sofia", cursive;
+      padding-bottom: 5px;
+      margin-bottom: 3px;
+    }
+    
+    .control-box {
+      position: relative;
+      display: inline-block;
+      width: 44.66%;
+      margin-right: 1.33%;
+      height: 120px;
+    }
+    .control-box.palette {
+      width: 36%;
+    }
+    .control-box.brush {
+      width: 15.33%;
+    }
+    
+    .control-header {
+      position: relative;
+      font-size: 12px;
+      width: 100%;
+      margin: 5px 0 0 5px;
+      color: #eeeeee;
+      text-transform: uppercase;
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+    }
+    
+    .control-inner {
+      position: absolute;
+      height: 100px;
+      width: 100%;
+      margin-top: 3px;
+      top: 20px;
+      overflow: scroll;
+    }
+    
+    .tool, .tool-thin {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+      top: 0px;
+      border: 1px solid rgba(238, 238, 238, 0.25);
+      background: rgba(238, 238, 238, 0.025);
+      cursor: pointer;
+    }
+    .tool i, .tool-thin i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      font-size: 25px;
+      color: rgba(238, 238, 238, 0.75);
+      transition: all 0.25s ease;
+    }
+    .tool h2, .tool-thin h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      font-size: 10px;
+      color: #eeeeee;
+      text-transform: uppercase;
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      opacity: 0;
+      transition: all 0.25s ease;
+    }
+    .tool:hover i, .tool-thin:hover i {
+      -webkit-transform: translate(-50%, -85%);
+              transform: translate(-50%, -85%);
+    }
+    .tool:hover h2, .tool-thin:hover h2 {
+      -webkit-transform: translate(-50%, 85%);
+              transform: translate(-50%, 85%);
+      opacity: 1;
+    }
+    .tool:focus, .tool-thin:focus, .tool.selected, .selected.tool-thin {
+      border: 1px solid rgba(0, 177, 106, 0.25);
+      background: rgba(0, 177, 106, 0.025);
+    }
+    
+    .tool-thin {
+      width: 25px;
+      height: 70px;
+      transition: all 0.25s ease;
+      box-shadow: inset 0 -60px 0 rgba(0, 0, 0, 0.5);
+      border: none;
+    }
+    .tool-thin:hover, .tool-thin.selected {
+      border: none;
+      box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.5);
+    }
+    
+    input[type="text"] {
+      position: relative;
+      display: inline-block;
+      padding-left: 5px;
+      border: 0;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none;
+      border-left: 5px solid #00b16a;
+      transition: all 0.3s ease;
+      color: #eee;
+      background: none;
+      width: 50%;
+      left: 5px;
+    }
+    input[type="text"]:focus, input[type="text"]:hover {
+      outline: none;
+      border-color: #eee;
+    }
+    
+    @-webkit-keyframes colors {
+      0% {
+        color: #00B16A;
+      }
+      20% {
+        color: #1BA39C;
+      }
+      40% {
+        color: #4183D7;
+      }
+      60% {
+        color: #3A539B;
+      }
+      80% {
+        color: #22313F;
+      }
+      100% {
+        color: #00B16A;
+      }
+    }
+    
+    @keyframes colors {
+      0% {
+        color: #00B16A;
+      }
+      20% {
+        color: #1BA39C;
+      }
+      40% {
+        color: #4183D7;
+      }
+      60% {
+        color: #3A539B;
+      }
+      80% {
+        color: #22313F;
+      }
+      100% {
+        color: #00B16A;
+      }
+    }
+    @-webkit-keyframes bgcolors {
+      0% {
+        background: #22313F;
+      }
+      20% {
+        background: #1F3A93;
+      }
+      40% {
+        background: #26A65B;
+      }
+      60% {
+        background: #4183D7;
+      }
+      80% {
+        background: #4183D7;
+      }
+      100% {
+        background: #22313F;
+      }
+    }
+    @keyframes bgcolors {
+      0% {
+        background: #22313F;
+      }
+      20% {
+        background: #1F3A93;
+      }
+      40% {
+        background: #26A65B;
+      }
+      60% {
+        background: #4183D7;
+      }
+      80% {
+        background: #4183D7;
+      }
+      100% {
+        background: #22313F;
+      }
+    }
+    .github {
+      position: absolute;
+      right: 40px;
+      bottom: 220px;
+      color: white;
+    }
+    .github a {
+      position: absolute;
+      top: -35px;
+      font-size: 36px;
+    }
+    .github a:hover {
+      -webkit-animation: colors 0.25s linear infinite;
+              animation: colors 0.25s linear infinite;
+    }
+    
+    .web {
+      position: absolute;
+      right: 48px;
+      bottom: 221px;
+      background: #eee;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+    .web a {
+      position: relative;
+      margin: auto auto;
+      left: 6px;
+      top: 6.5px;
+      font-size: 20px;
+      color: #333;
+    }
+    .web:hover {
+      -webkit-animation: bgcolors 0.25s linear infinite;
+              animation: bgcolors 0.25s linear infinite;
+      cursor: pointer;
+    }
+    /*--- gallery ---*/
+    #Gallery {
+      margin-top: 30px;
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .gallery-item { 
+      float: left;
+      position: relative;
+      width: 20%;
+      padding-bottom: 14%;
+    }
+    .gallery-item a {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      overflow: hidden;
+    }
+    .gallery-item a img {
+      width: 100%;
+    }
+    
+    @media only screen and (max-width:480px) { 
+        /* Smartphone view: 1 tile */
+        .gallery-item {
+            width: 100%;
+            padding-bottom: 100%;
+        }
+    }
+    @media only screen and (max-width:650px) and (min-width:481px) { 
+        /* Tablet view: 2 tiles */
+        .gallery-item {
+            width: 50%;
+            padding-bottom: 33.3%;
+        }
+    }
+    @media only screen and (max-width:1050px) and (min-width:651px) { 
+        /* Small desktop / ipad view: 3 tiles */
+        .gallery-item {
+            width: 33.3%;
+            padding-bottom: 23%;
+        }
+    }
+    @media only screen and (max-width:1290px) and (min-width:1051px) { 
+        /* Medium desktop: 4 tiles */
+        .gallery-item {
+            width: 25%;
+            padding-bottom: 17%;
+        }
+    }
+    
+    
+    
+    
+    
+    body.ps-active 
+    {
+      -webkit-text-size-adjust: none;
+    }
+    body.ps-active * 
+    { 
+      -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    }
+    body.ps-active *:focus 
+    { 
+      outline: 0; 
+    }
+    
+    
+    /* Document overlay */
+    div.ps-document-overlay 
+    {
+      background: #000;
+    }
+    
+    
+    /* Viewport */
+    div.ps-viewport 
+    {
+      background: #000;
+      cursor: pointer;
+    }
+    
+    
+    /* Zoom/pan/rotate layer */
+    div.ps-zoom-pan-rotate{
+      background: #000;
+    }
+    
+    
+    /* Slider */
+    div.ps-slider-item-loading 
+    { 
+      background: url(http://abvichico.com/images/photoswipe/photoswipe-loader.gif) no-repeat center center; 
+    }
+    
+    
+    /* Caption */
+    div.ps-caption
+    { 
+      background: #000000;
+      background: -moz-linear-gradient(top, #303130 0%, #000101 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#303130), color-stop(100%,#000101));
+      border-bottom: 1px solid #42403f;
+      color: #ffffff;
+      font-size: 13px;
+      font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;
+      text-align: center;
+    }
+    
+    div.ps-caption-bottom
+    { 
+      border-top: 1px solid #42403f;
+      border-bottom: none;
+    }
+    
+    div.ps-caption-content
+    {
+      padding: 13px;
+    }
+    
+    
+    /* Toolbar */
+    div.ps-toolbar
+    { 
+      background: #000000;
+      background: -moz-linear-gradient(top, #303130 0%, #000101 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#303130), color-stop(100%,#000101));
+      border-top: 1px solid #42403f;
+      color: #ffffff;
+      font-size: 13px;
+      font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;
+      text-align: center;
+      height: 44px;
+      display: table;
+      table-layout: fixed;
+    }
+    
+    div.ps-toolbar-top 
+    {
+      border-bottom: 1px solid #42403f;
+      border-top: none;
+    }
+    
+    div.ps-toolbar-close, div.ps-toolbar-previous, div.ps-toolbar-next, div.ps-toolbar-play
+    {
+      cursor: pointer;
+      display: table-cell;
+    }
+    
+    div.ps-toolbar div div.ps-toolbar-content
+    {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 0;
+      background-image: url(http://abvichico.com/images/photoswipe/photoswipe-icons.png);
+      background-repeat: no-repeat;
+    }
+    
+    div.ps-toolbar-close div.ps-toolbar-content
+    {
+      background-position: 0 0;
+    }
+    
+    div.ps-toolbar-previous div.ps-toolbar-content
+    {
+      background-position: -44px 0;
+    }
+    
+    div.ps-toolbar-previous-disabled div.ps-toolbar-content
+    {
+      background-position: -44px -44px;
+    }
+    
+    div.ps-toolbar-next div.ps-toolbar-content
+    {
+      background-position: -132px 0;
+    }
+    
+    div.ps-toolbar-next-disabled div.ps-toolbar-content
+    {
+      background-position: -132px -44px;
+    }
+    
+    div.ps-toolbar-play div.ps-toolbar-content
+    {
+      background-position: -88px 0;
+    }
+    
+    /* Hi-res retina display */
+    @media only screen and (-webkit-min-device-pixel-ratio: 2)
+    {
+      div.ps-toolbar div div.ps-toolbar-content
+      {
+        -webkit-background-size: 176px 88px;
+        background-image: url(http://abvichico.com/images/photoswipe/photoswipe-icons@2x.png);
+      }
+    }
+    
+    /*---video player ---*/
+    
+    .container-inner {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+    }
+    
+    .video-player-container{
+      width: 648px;
+      height: 350px;
+      z-index: 2;
+    }
+    
+    .video-container {
+      height: 310px;
+      background-color: black;
+    }
+    
+    #media-video {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    
+    
+    
+    .player-container {
+      height: 40px;
+      background-color: #f6f6f6;
+    }
+    
+    .play-control, .volume-control {
+      width: 40px;
+      height: 40px;
+      display: table;
+      border-right: 1px solid #dddddd;
+      cursor: pointer;
+      float: left;
+    }
+    
+    .play-button, .volume-button-mute {
+      vertical-align: middle;
+      text-align: center;
+      display: none;
+    }
+    
+    .pause-button, .volume-button {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    
+    .play-control .fa {
+      font-size: 0.2em;
+    }
+    
+    .volume-control .fa {
+      font-size: 0.8em;
+    }
+    
+    .indicator {
+      width: 100px;
+      height: 40px;
+      border-right: 1px solid #dddddd;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 11px;
+        text-align: center;
+        float: left;
+        line-height: 40px;
+    }
+    
+    .progress {
+      width: 425px;
+      height: 40px;
+      float: left;
+    }
+    
+    .progress-background {
+      position: absolute;
+        width: 385px;
+        height: 1px;
+        background-color: black;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    .progress-over {
+      position: absolute;
+        width: 160px;
+        height: 1px;
+        background-color: #5e9f62;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    .progress-hidden {
+      position: absolute;
+        width: 385px;
+        height: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    
+    .fullscreen-button {
+      width: 40px;
+      height: 40px;
+      float: right;
+      display: table;
+      cursor: pointer;
+    }
+    
+    .fullscreen-button i {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      border-left: 1px solid #dddddd;
+    }
+    
+    
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+  
+
+ 
+
+  <div class="TB">
+  <a class="TBStart waves-effect waves-dark modal-trigger" href="#Start">
+    <img style="width:100%; padding:3px; border-radius:100px;" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/531144/LogoKeyon.png" />
+  </a>
+  </div>
+    <div class="TB">
+    <a class="TBsStart waves-effect waves-dark modal-trigger" href="#Start">
+    <img style="width:100%; padding:3px; border-radius:100px;" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/531144/LogoKeyon.png" />
+  </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-start" class="modal bottom-sheet">
+  <div class="modal-content">
+    <div align="center">
+      <img style="width:100px;" src="https://www.seeklogo.net/wp-content/uploads/2015/09/new-google-favicon-logo.png" />
+    </div>
+    <form style="width:500px; margin:0 auto;">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Search on web or device</label>
+        </div>
+        <div align="center">
+          <a style="width:150px;" class="waves-effect waves-light blue lighten-1 btn">Search</a>
+          <a style="width:150px;" href="#!" class="waves-effect waves-red modal-close grey grey-text lighten-5 btn">Close</a>
+        </div>
+
+        </div>
+    </form>
+    </div>
+  </div>
+  
+  
+
+<div id="Start" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <div style="height:80px;" >
+      <img class="AvatarStart z-depth-1" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/531144/LogoKeyon.png" >
+      <p class="Pp">Abolfazl Lalehdashty</p>
+      <a onclick="FNA()" class="InfoA tooltipped waves-effect waves-default" data-position="right" data-delay="50" data-tooltip="Info / Change">Plan: 1TB </a>
+          <a onclick="FNA()" class="waves-effect waves-red btn-flat red-text text-lighten-2 ExitA">Log out</a>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td class="FTD">Storage</td>
+              <td>550 GB used on 1 TB <a class="btn-flat waves-effect waves-default" onclick="FNA()">Upgrade</a></td>
+            </tr>
+            <tr>
+              <td class="FTD">Something</td>
+              <td>Activate something <div class="switch">
+                  <label>
+                    Off
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    On
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="FTD">Lorem</td>
+              <td>Ipsum dolor sit amet!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-default blue-text btn-flat ">Save and Close</a>
+      </div>
+  </div>
+
+  <div id="InfoHD" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>(C:) Files</h4>
+      <p>
+        Files (30%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#2196f3 " d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" />
+        </svg>
+      </p>
+      <div class="progress blue lighten-3">
+          <div class="determinate blue" style="width: 30%"></div>
+      </div>
+      <p>Images (20%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#4caf50  " d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M6,20H15L18,20V12L14,16L12,14L6,20M8,9A2,2 0 0,0 6,11A2,2 0 0,0 8,13A2,2 0 0,0 10,11A2,2 0 0,0 8,9Z" />
+        </svg>
+      </p>
+      <div class="progress green lighten-3">
+          <div class="determinate green" style="width: 20%"></div>
+      </div>
+      <p>Video (3%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#f44336" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M17,19V13L14,15.2V13H7V19H14V16.8L17,19Z" />
+        </svg>
+      </p>
+      <div class="progress red lighten-3">
+          <div class="determinate red" style="width: 3%"></div>
+      </div>
+      <p>Recycle Bin (0%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#607d8b " d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+        </svg>
+      </p>
+      <div class="progress blue-grey lighten-3">
+          <div class="determinate blue-grey" style="width: 0%"></div>
+      </div>
+      <p>Used (53%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#673ab7 " d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z" />
+        </svg>
+      </p>
+      <div class="progress deep-purple lighten-3">
+          <div class="determinate deep-purple" style="width: 53%"></div>
+      </div>
+      <p>Available (47%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#673ab7" d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z" />
+        </svg>
+      </p>
+      <div class="progress deep-purple lighten-3">
+          <div class="determinate deep-purple" style="width: 47%"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+    </div>
+  </div>
+
+  <div id="Icon1" class="Icon">
+    <svg style="margin:5px;" viewBox="0 0 24 24">
+    <path fill="#37474F" d="M3,4H21A1,1 0 0,1 22,5V16A1,1 0 0,1 21,17H22L24,20V21H0V20L2,17H3A1,1 0 0,1 2,16V5A1,1 0 0,1 3,4M4,6V15H20V6H4Z" />
+</svg>
+    <p class="ILabel">Computer</p>
+  </div>
+  
+  <div id="Icon2" class="Icon">
+    <svg style="margin:5px;" viewBox="0 0 24 24">
+    <path fill="#FFB300" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z" />
+</svg>
+    <p class="ILabel">Readme.txt</p>
+  </div>
+
+
+    <div id="Icon3" class="Icon">
+    <div class="fas fa-book-open fa-3x" style="margin:5px;color:#2980b9;" viewBox="0 0 24 24">
+    <p class="ILabel">Note Editor</p></div>
+  </div> 
+
+    <div id="Icon4" class="Icon">
+    <div class="fas fa-calculator fa-3x" style="margin:5px;color:#16a085;" viewBox="0 0 24 24">
+    <p class="ILabel">calculator</p></div>
+  </div>
+  
+    <div id="Icon5" class="Icon">
+    <div class="fas fa-paint-brush fa-3x" style="margin:5px;color:#27ae60;" viewBox="0 0 24 24">
+    <p class="ILabel">Paint</p></div>
+  </div>
+  
+      <div id="Icon6" class="Icon">
+    <div class="far fa-images fa-3x" style="margin:5px;color:#9b59b6;" viewBox="0 0 24 24">
+    <p class="ILabel">Gallery</p></div>
+  </div>
+      <div id="Icon7" class="Icon">
+    <div class="far fa-user-circle fa-3x" style="margin:5px;color:#e74c3c;" viewBox="0 0 24 24">
+    <p class="ILabel">Contact List</p></div>
+  </div>
+        <div id="Icon8" class="Icon">
+    <div class="fas fa-quidditch fa-3x" style="margin:5px;color:#d35400;" viewBox="0 0 24 24">
+    <p class="ILabel">Photo Editor</p></div>
+  </div>     
+  <div id="Icon9" class="Icon">
+    <div class="far fa-list-alt fa-3x" style="margin:5px;color:#f39c12;" viewBox="0 0 24 24">
+    <p class="ILabel">TODO List</p></div>
+  </div>
+  <div id="Icon10" class="Icon">
+    <div class="fas fa-gamepad fa-3x" style="margin:5px;color:#f39c12;" viewBox="0 0 24 24">
+    <p class="ILabel">Game</p></div>
+  </div>
+  <!--Window-->
+  <div id="set">
+    <div id="ComWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar">
+            <a class="btn bf"></a>
+            <a id="ClsBtn" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Computer</p>
+          </div>
+          <div class="row tb">
+            <div class="row">
+              <div class="col s12 m4 l5">
+
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">Local Disk (C:)</span>
+                    <p>550 GB available on 1 TB</p>
+                    <div class="progress">
+                      <div class="determinate" style="width: 56%"></div>
+                    </div>
+                  </div>
+                  <div class="card-action">
+                    <a href="#" onclick="Materialize.toast('Alreay opened', 4000)">Open</a>
+                    <a href="#InfoHD" class="modal-trigger">Info</a>
+                  </div>
+                </div>
+
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">Cloude drive(D:)</span>
+                    <p>login first.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">Exit</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col s12 m4 l7">
+                <div class="card blue-grey lighten-5">
+                  <div class="card-content blue-grey-text">
+                    <span class="card-title">Local Disk (C:)</span>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">airplay</i>Local</div>
+                        <div class="collapsible-body">
+                          <div class="row">
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M3,3H9V7H3V3M15,10H21V14H15V10M15,17H21V21H15V17M13,13H7V18H13V20H7L5,20V9H7V11H13V13Z" />
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">System</p>
+                            </div>
+
+                            <div class="Icon col s2">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M19,17H11V16C11,14.67 13.67,14 15,14C16.33,14 19,14.67 19,16M15,9A2,2 0 0,1 17,11A2,2 0 0,1 15,13A2,2 0 0,1 13,11C13,9.89 13.9,9 15,9M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z" />
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">User</p>
+                            </div>
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M20,6A2,2 0 0,1 22,8V18A2,2 0 0,1 20,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H20M19.25,13H16V9H14V13H10.75L15,17.25" />
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Download</p>
+                            </div>
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M5,17L9.5,11L13,15.5L15.5,12.5L19,17M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6Z" />
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Media</p>
+                            </div>
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z" />
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Empty</p>
+                            </div>
+
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Cloud</div>
+                        <div class="collapsible-body">
+                          <div class="row">
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M13.75,9H16.14L19,14H16.05L13.5,9.46M18.3,17H12.75L14.15,14.5H19.27L19.53,14.96M11.5,17L10.4,14.86L13.24,9.9L14.74,12.56L12.25,17M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z" />
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Drive</p>
+                            </div>
+
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="NoteWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable2">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar2">
+            <a class="btn bf"></a>
+            <a id="ClsBtn1" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Note</p>
+          </div>
+
+          <div class="fixed-action-btn horizontal right click-to-toggle" style="position:absolute; bottom:100px;">
+            <a class="btn-floating btn-large yellow darken-2">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul>
+              <li>
+                <a style="text-align:center;" class="btn-floating blue">
+                  <svg style="width:24px;height:24px; margin-top:5px;" viewBox="0 0 24 24">
+          <path fill="#fff" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+      </svg>
+                </a>
+              </li>
+
+              <li>
+                <a style="text-align:center;" class="btn-floating blue">
+                  <svg style="width:24px;height:24px; margin-top:5px;" viewBox="0 0 24 24">
+          <path fill="#fff" d="M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z" />
+      </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+              <li><a style="text-align:center; font-weight:bold;" class="btn-floating green">B</a></li>
+              <li><a style="text-align:center;" class="btn-floating blue">A<span style="font-size:11px;">A</span></a></li>
+            </ul>
+          </div>
+          <div class="row ContentText z-depth-2">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="TArea">
+"I once asked, who would help me to find decision in my future?
+Someone to see something in every horizon - that so mature!
+That I'll be able to wake up with the thoughts of I can do it in my nature.
+And to help establish myself in every area I go and I feature.
+Being able to stand firm in everything I do without measure!...
+
+This thought once did cascade my heart and left me thinking, that none else would ever fit into this position. But I was wrong. I was so wrong and so blind to see you were going to come and change it all. And against my thoughts, you came and turned my whole life around.
+
+A lifetime is not enough to say how lucky I am to have met you. I love you so much"
+
+
+Abolfazl Lalehdashty
+                  </textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+
+
+        <div id="NedWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable3">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar3">
+            <a class="btn bf"></a>
+            <a id="ClsBtn2" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Note Editor</p>
+          </div>
+<iframe src="http://ldesk.ir/note/" ></iframe>
+
+                </div>
+          </div> 
+          </div> 
+
+    <div id="CalWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable4">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar4">
+            <a class="btn bf"></a>
+            <a id="ClsBtn3" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Calculator</p>
+          </div>
+
+    <div class="unselectable" id="calculator">
+      <!-- Screen and C key -->
+      <div class="top">
+        <div id="display"></div>
+      </div>
+      <div class="keys">
+        <!-- keys -->
+        <span class="btnc operator">+</span> 
+        <span class="btnc operator">-</span> 
+        <span class="btnc operator">×</span> 
+        <span class="btnc operator">&divide;</span>
+        <span class="btnc number">7</span> 
+        <span class="btnc number">8</span> 
+        <span class="btnc number">9</span> 
+        <span class="btnc operator">&radic;</span>
+        <span class="btnc number">4</span> 
+        <span class="btnc number">5</span> 
+        <span class="btnc number">6</span> 
+        <span class="btnc operator">x<sup>y</sup></span>
+        <span class="btnc number">1</span> 
+        <span class="btnc number">2</span> 
+        <span class="btnc number">3</span> 
+        <span class="btnc " id="pnsign">+/-</span>
+        <span class="btnc number">0</span> 
+        <span class="btnc number">.</span> 
+        <span class="btnc operator" id="eval">=</span> 
+        <span class="btnc clear">C</span>
+    </div>
+  </div>      </div>
+                </div>
+          </div>
+
+    <div id="PaintWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable5">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar5">
+            <a class="btn bf"></a>
+            <a id="ClsBtn4" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Paint</p>
+          </div>
+
+   <canvas id="canvas">Your browser does not support canvas element.</canvas>
+<div id="control">
+    <div class="container">
+     <div class="control-box">
+            <div class="control-header">Toolkit</div>
+            <div id="tools" class="control-inner">
+            </div>
+        </div>
+        <div class="control-box brush">
+        <div class="control-header">Brush Settings</div>
+            <div class="brush">
+                <div class="control-inner">
+                    <div class="control-header" style="margin-top:10px!important">Size</div>
+                    <input id="brush" type="text" value="5"/>
+                    <div class="control-header" style="margin-top:10px!important">Color</div>
+                    <input id="color" type="text" value="#00B16A"/>
+                    <div class="control-header" style="margin-top:10px!important">Alpha</div>
+                    <input id="alpha" type="text" value="1.0"/>
+                </div>
+            </div>
+        </div>
+        <div class="control-box palette">
+            <div class="control-header">Palette</div>
+            <div id="paints" class="control-inner">
+            </div>
+        </div>
+    </div>
+</div>                </div>
+
+
+                </div>
+          </div>
+          
+    <div id="GalWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable6">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar6">
+            <a class="btn bf"></a>
+            <a id="ClsBtn5" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Gallery</p>
+          </div>
+
+  <div id="Gallery">
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Exterior2.jpg"><img src="http://abvichico.com/images/thumb/Exterior2.jpg" alt="Exterior"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Lobby1.jpg"><img src="http://abvichico.com/images/thumb/Lobby1.jpg" alt="Lobby"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Room2.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Room2.jpg" alt="Guest Room"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Room4.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Room4.jpg" alt="Guest Room"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Room6.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Room6.jpg" alt="Guest Room"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Room8.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Room8.jpg" alt="Guest Room"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Room9.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Room9.jpg" alt="Guest Room"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Room5.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Room5.jpg" alt="Guest Room"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Guest%20Bathroom2.jpg"><img src="http://abvichico.com/images/thumb/Guest%20Bathroom2.jpg" alt="Guest Bathroom"/></a>
+  </div>
+  <div class="gallery-item">
+    <a href="http://abvichico.com/images/full/Pool3.jpg"><img src="http://abvichico.com/images/thumb/Pool3.jpg" alt="Pool"/></a>
+  </div>
+</div>
+                </div>
+                </div>
+          </div>
+          
+    <div id="VidWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable7">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar7">
+            <a class="btn bf"></a>
+            <a id="ClsBtn6" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Contact List</p>
+          </div>
+<iframe src="http://ldesk.ir/contact/" style=height:500px;></iframe>
+
+                </div>
+          </div> 
+          </div> 
+          
+        <div id="PeWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable8">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar8">
+            <a class="btn bf"></a>
+            <a id="ClsBtn7" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Photo Editor</p>
+          </div>
+<iframe src="http://ldesk.ir/photo/" style=height:650px;></iframe>
+
+                </div>
+          </div> 
+          </div> 
+          
+        <div id="TodoWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable9">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar9">
+            <a class="btn bf"></a>
+            <a id="ClsBtn8" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Todo List</p>
+          </div>
+<iframe src="http://ldesk.ir/todo/" style=height:500px;overflow:hidden;></iframe>
+
+                </div>
+                </div>
+          </div>     
+                  <div id="GameWin" class="ui-widget-content hidden">
+      <div class="z-depth-1" id="draggable10">
+        <div class="content">
+          <div class="ctrlbar" id="ctrlbar10">
+            <a class="btn bf"></a>
+            <a id="ClsBtn9" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Game</p>
+          </div>
+<iframe src="http://ldesk.ir/mine/" style=height:500px;overflow:hidden;></iframe>
+
+                </div>
+          </div>          
+          
+  <div id="ErrorWS" class="hidden">
+    <p>
+      Screen size is under 1024 x 768 <br/> Please use minimum 1024 x 768 <br /> Recommended resolution: 1920 x 1080 or scaled
+    </p>
+  </div>
+  
+ 
+
+  
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src='http://abvichico.com/js/simple-inheritance.min.js'></script>
+<script src='http://abvichico.com/js/code-photoswipe-1.0.11.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script>
+
+  
+
+    <script>
+      $(function() {
+        $("#Icon1").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon2").draggable({
+          grid: [80, 80]
+        });
+      });
+      
+      $(function() {
+        $("#Icon3").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon4").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon5").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon6").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon7").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon8").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon9").draggable({
+          grid: [80, 80]
+        });
+      });
+      $(function() {
+        $("#Icon10").draggable({
+          grid: [80, 80]
+        });
+      });
+      
+      $("#Icon1").dblclick(function() {
+        $('#ComWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn").click(function() {
+        $('#ComWin').addClass('hidden');
+      });
+      
+      $("#Icon2").dblclick(function() {
+        $('#NoteWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn1").click(function() {
+        $('#NoteWin').addClass('hidden');
+      });
+      
+      $("#Icon3").dblclick(function() {
+        $('#NedWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn2").click(function() {
+        $('#NedWin').addClass('hidden');
+      });
+      
+      $("#Icon4").dblclick(function() {
+        $('#CalWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn3").click(function() {
+        $('#CalWin').addClass('hidden');
+      });
+      
+      $("#Icon5").dblclick(function() {
+        $('#PaintWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn4").click(function() {
+        $('#PaintWin').addClass('hidden');
+      });
+      
+      $("#Icon6").dblclick(function() {
+        $('#GalWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn5").click(function() {
+        $('#GalWin').addClass('hidden');
+      });
+      $("#Icon7").dblclick(function() {
+        $('#VidWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn6").click(function() {
+        $('#VidWin').addClass('hidden');
+      });
+      $("#Icon8").dblclick(function() {
+        $('#PeWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn7").click(function() {
+        $('#PeWin').addClass('hidden');
+      });
+      $("#Icon9").dblclick(function() {
+        $('#TodoWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn8").click(function() {
+        $('#TodoWin').addClass('hidden');
+      });
+      $("#Icon10").dblclick(function() {
+        $('#GameWin').removeClass('hidden');
+      });
+      
+      $("#ClsBtn9").click(function() {
+        $('#GameWin').addClass('hidden');
+      });
+      $(function() {
+        $("#ComWin").draggable({
+          handle: "#ctrlbar"
+        });
+      });
+      
+      $(function() {
+        $("#NoteWin").draggable({
+          handle: "#ctrlbar2"
+        });
+      });
+      
+      $(function() {
+        $("#NedWin").draggable({
+          handle: "#ctrlbar3"
+        });
+      });
+      
+      $(function() {
+        $("#CalWin").draggable({
+          handle: "#ctrlbar4"
+        });
+      });
+      
+      $(function() {
+        $("#PaintWin").draggable({
+          handle: "#ctrlbar5"
+        });
+      });
+      
+      $(function() {
+        $("#GalWin").draggable({
+          handle: "#ctrlbar6"
+        });
+      });
+      $(function() {
+        $("#VinWin").draggable({
+          handle: "#ctrlbar7"
+        });
+      });
+      $(function() {
+        $("#PeWin").draggable({
+          handle: "#ctrlbar8"
+        });
+      });
+      $(function() {
+        $("#TodoWin").draggable({
+          handle: "#ctrlbar9"
+        });
+      });
+      $(function() {
+        $("#GameWin").draggable({
+          handle: "#ctrlbar10"
+        });
+      });
+      Materialize.toast('Double click on icons to open', 4000)
+      
+      $(document).ready(function() {
+        $('input#input_text, textarea#textarea1').characterCounter();
+      });
+      $(document).ready(function() {
+        $('input#input_text, textarea#textarea2').characterCounter();
+      });
+      
+      $(document).ready(function() {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+      });
+      
+      function FNA() {
+        Materialize.toast('Function not available', 4000)
+      }
+      
+      if ($(window).width() <= 1023) { 
+        $('#ErrorWS').removeClass('hidden');
+      }
+      
+      $(document).ready(function() {
+        var number = "";
+        var numberTwo = "";
+        var selectedOperator = "";
+        var result = $("#display");
+        
+        
+        // clear display
+        $('.clear').click(function() {
+          number = "";
+          numberTwo = "";
+          selectedOperator = "";
+          $('#display').text("0");
+        })
+        
+          //sloppy +/- change
+          function signChange(){
+            number *= -1;
+            $('#display').text(number);
+            console.log("signchange: "+ number);
+          }
+        var pnsignClick = document.getElementById("pnsign");
+        pnsignClick.addEventListener("click", signChange);
+        
+      
+        //enter numbers and decimal
+        $('.number').click(function() {
+          number += $(this).text();
+          $('#display').text(number);
+          console.log(number);
+        })
+      
+        $(".operator").not("#eval").click(function() {
+          selectedOperator = $(this).text();
+          numberTwo = number;
+          number = "";
+          console.log("op:"+selectedOperator);
+          console.log("2:"+numberTwo);
+          console.log("1:"+number);
+          //result.text("");
+        });
+      
+        //do the operation
+        $('#eval').click(function() {
+      
+          if (selectedOperator === "+") {
+            number = (parseFloat(numberTwo) + parseFloat(number));
+          } else if (selectedOperator === "-") {
+            number = (parseFloat(numberTwo) - parseFloat(number));
+          } else if (selectedOperator === "×") {
+            number = (parseFloat(numberTwo) * parseFloat(number)).toPrecision(5);
+          } else if (selectedOperator === "÷") {
+            number = (parseFloat(numberTwo) / parseFloat(number)).toPrecision(5);
+          } else if (selectedOperator === "xy") {
+            number = (Math.pow(numberTwo,number)).toPrecision(5);
+          } else if (selectedOperator === "√") {
+            number = Math.sqrt(numberTwo); 
+          }
+          result.text(number);
+          number = "";
+          numberTwo = "";
+      
+        })
+      
+      });
+      
+      var kit_dict = {
+          'tools': [
+              ['paint','fa-paint-brush'],
+              ['background','fa-picture-o'],
+              ['save','fa-floppy-o'],
+              ['delete','fa-trash-o']
+          ],
+          'paints': ["#00B16A","#4ECDC4","#A2DED0","#87D37C","#90C695","#26A65B","#03C9A9","#68C3A3","#65C6BB","#1BBC9B","#1BA39C","#66CC99","#36D7B7","#C8F7C5","#86E2D5","#2ECC71","#16a085","#3FC380","#019875","#03A678","#4DAF7C","#2ABB9B","#1E824C","#049372","#26C281","#446CB3","#E4F1FE","#4183D7","#59ABE3","#81CFE0","#52B3D9","#C5EFF7","#22A7F0","#3498DB","#2C3E50","#19B5FE","#336E7B","#22313F","#6BB9F0","#1E8BC3","#3A539B","#34495E","#67809F","#2574A9","#1F3A93","#89C4F4","#4B77BE","#5C97BF","#EC644B","#D24D57","#F22613","#D91E18","#96281B","#EF4836","#D64541","#C0392B","#CF000F","#E74C3C","#DB0A5B","#F64747","#F1A9A0","#D2527F","#E08283","#F62459","#E26A6A","#DCC6E0","#663399","#674172","#AEA8D3","#913D88","#9A12B3","#BF55EC","#BE90D4","#8E44AD","#9B59B6","#e9d460","#FDE3A7","#F89406","#EB9532","#E87E04","#F4B350","#F2784B","#EB974E","#F5AB35","#D35400","#F39C12","#F9690E","#F9BF3B","#F27935","#E67E22","#ececec","#6C7A89","#D2D7D3","#EEEEEE","#BDC3C7","#ECF0F1","#95A5A6","#DADFE1","#ABB7B7","#F2F1EF","#BFBFBF","#EC644B","#D24D57","#F22613","#D91E18","#96281B","#EF4836","#D64541","#C0392B","#CF000F","#E74C3C","#DB0A5B","#F64747","#F1A9A0","#D2527F","#E08283","#F62459","#E26A6A","#DCC6E0","#663399","#674172","#AEA8D3","#913D88","#9A12B3","#BF55EC","#BE90D4","#8E44AD","#9B59B6","#446CB3","#E4F1FE","#4183D7","#59ABE3","#81CFE0","#52B3D9","#C5EFF7","#22A7F0","#3498DB","#2C3E50","#19B5FE","#336E7B","#22313F","#6BB9F0","#1E8BC3","#3A539B","#34495E","#67809F","#2574A9","#1F3A93","#89C4F4","#4B77BE","#5C97BF","#4ECDC4","#A2DED0","#87D37C","#90C695","#26A65B","#03C9A9","#68C3A3","#65C6BB","#1BBC9B","#1BA39C","#66CC99","#36D7B7","#C8F7C5","#86E2D5","#2ECC71","#16a085","#3FC380","#019875","#03A678","#4DAF7C","#2ABB9B","#00B16A","#1E824C","#049372","#26C281","#e9d460","#FDE3A7","#F89406","#EB9532","#E87E04","#F4B350","#F2784B","#EB974E","#F5AB35","#D35400","#F39C12","#F9690E","#F9BF3B","#F27935","#E67E22","#ececec","#6C7A89","#D2D7D3","#EEEEEE","#BDC3C7","#ECF0F1","#95A5A6","#DADFE1","#ABB7B7","#F2F1EF","#BFBFBF"]
+      };
+      var clickX = new Array();
+      var clickY = new Array();
+      var clickDrag = new Array();
+      var clickColor = new Array();
+      var clickSize = new Array();
+      var paint;
+      var toolSelected = 'paint'
+      
+      // Settings
+      var strokeColorSetting = "#00b16a";
+      var strokeSizeSetting = 5;
+      
+      // Elements
+      var canvas = document.getElementById("canvas");
+      var control = document.getElementById("control");
+      var context = canvas.getContext("2d");
+      var brushDisplay = document.getElementById('brush');
+      var colorDisplay = document.getElementById('color');
+      var paintList = document.getElementsByClassName("tool-thin");
+      var toolList = document.getElementsByClassName("tool");
+      var paintKit = document.getElementById('paints');
+      var toolKit = document.getElementById('tools');
+      
+      // Document function
+      function initializeDocument(){
+          canvas.width = document.body.clientWidth;
+          canvas.height = document.body.clientHeight - control.clientHeight;
+          for (var i = 0; i < kit_dict['paints'].length; i++){
+              paintKit.innerHTML += "<div class='tool-thin' style='background:" + kit_dict['paints'][i] + "!important' " + "color='"+ kit_dict['paints'][i] +"'" +"></div>\n";
+          }
+          for (var i = 0; i < kit_dict['tools'].length; i++){
+              toolKit.innerHTML += "<div class='tool' id='" + kit_dict['tools'][i][0] + "'>\n<i class='fa "+ kit_dict['tools'][i][1] +"'></i>\n<h2>" + kit_dict['tools'][i][0] + "</h2></div>\n";
+          }
+          brushDisplay.setAttribute("style", "border-width: " + brushDisplay.value + "px");
+          var paintButton = document.getElementById("paint");
+          paintList[0].classList.add("selected");
+          paintButton.classList.add("selected");
+      }
+      
+      function get_mouse_position(canvas, event) {
+          var rect = canvas.getBoundingClientRect();
+          return {
+              x: event.clientX - rect.left,
+              y: event.clientY - rect.top
+          };
+      };
+      
+      // Drawing functions
+      function addClick(x, y, dragging){
+          clickX.push(x);
+          clickY.push(y);
+          clickDrag.push(dragging);
+          clickColor.push(strokeColorSetting);
+          clickSize.push(strokeSizeSetting);
+      }
+      
+      function resetCanvas(){
+          clickX = new Array();
+          clickY = new Array();
+          clickDrag = new Array();
+          clickColor = new Array();
+          clickSize = new Array();
+          canvas.style.background = "none";
+      }
+      
+      function clearCanvas(context){
+          context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+      }
+      
+      function redraw(context){
+          clearCanvas(context);
+          context.lineJoin = "round";
+          for (var i = 0; i < clickX.length; i++){
+              context.lineWidth = clickSize[i];
+              context.beginPath();
+              if(clickDrag[i] && i){
+                  context.moveTo(clickX[i-1], clickY[i-1]);
+              }
+              else{
+                  context.moveTo(clickX[i]-1, clickY[i]);
+              }
+              context.lineTo(clickX[i], clickY[i]);
+              context.closePath();
+              context.strokeStyle = clickColor[i];
+              context.stroke();
+          }   
+      }
+      
+      // main:
+      initializeDocument();
+      
+      // Drawing board event functions
+      function handleStart(event){
+          if (toolSelected == 'paint'){
+              mouse_position = get_mouse_position(canvas, event);
+              var mouseX = mouse_position.x;
+              var mouseY = mouse_position.y;
+              paint = true;
+              addClick(mouse_position.x, mouse_position.y);
+              redraw(context);
+          }
+          else if (toolSelected == 'background'){
+              canvas.style.background = strokeColorSetting;
+          }
+      }
+      
+      function handleMove(event){
+          event.preventDefault();
+          if (paint && toolSelected == 'paint'){
+              mouse_position = (event.type != "touchmove") ? get_mouse_position(canvas, event) : get_mouse_position(canvas, event.touches[0]);
+              addClick(mouse_position.x, mouse_position.y, true)
+              redraw(context);
+          }
+      }
+      
+      function handleEnd(event){
+          if (toolSelected == 'paint'){
+              paint = false;
+          }
+      }
+      
+      // Drawing board events
+      canvas.addEventListener('mousedown', handleStart, false);
+      canvas.addEventListener('mousemove', handleMove, false);
+      canvas.addEventListener('mouseup', handleEnd, false);
+      canvas.addEventListener('mouseleave', handleEnd, false);
+      canvas.addEventListener("touchstart", handleStart, false);
+      canvas.addEventListener("touchend", handleEnd, false);
+      canvas.addEventListener("touchcancel", handleEnd, false);
+      canvas.addEventListener("touchmove", handleMove, false);
+      
+      var clearButton = document.getElementById('delete');
+      clearButton.addEventListener('click', function(event){
+          clearCanvas(context);
+          resetCanvas(context);
+      }, false);
+      
+      
+      var saveButton = document.getElementById('save');
+      saveButton.addEventListener('click', function(event){
+          var img = canvas.toDataURL("image/png");
+          window.location = img;
+      }, false);
+      
+      for (var i = 0; i < paintList.length; i++) {
+          paintList[i].addEventListener('click', function(event){
+              for (var i = 0; i < paintList.length; i++) {
+                  paintList[i].classList.remove("selected");
+              }
+              strokeColorSetting = this.getAttribute("color");
+              control.setAttribute("style","border-color: " + strokeColorSetting + "!important");
+              colorDisplay.value = strokeColorSetting;
+              colorDisplay.setAttribute("style", "border-color: " + strokeColorSetting + "!important" );
+              this.classList.add("selected");
+          }, false);
+      }
+      
+      brushDisplay.addEventListener('change', function(event){
+          strokeSizeSetting = this.value
+          this.setAttribute("style", "border-width: " + strokeSizeSetting + "px!important" );
+      }, false);
+      
+      colorDisplay.addEventListener('change', function(event){
+          for (var i = 0; i < paintList.length; i++) {
+              paintList[i].classList.remove("selected");
+          }
+          strokeColorSetting = this.value;
+          control.setAttribute("style","border-color: " + strokeColorSetting + "!important");
+          this.setAttribute("style", "border-color: " + strokeColorSetting + "!important" );
+      }, false);
+      
+      for (var i = 0; i < toolList.length; i++) {
+          toolList[i].addEventListener('click', function(event){
+              for (var i = 0; i < toolList.length; i++) {
+                  toolList[i].classList.remove("selected");
+              }
+              toolSelected = this.getAttribute("id");
+              this.classList.add("selected");
+          }, false);
+      }
+      
+      document.addEventListener('DOMContentLoaded', function(){
+        Code.photoSwipe('a', '#Gallery', { captionAndToolbarHideOnSwipe: false } );
+      }, false);
+      var mainFunction = 
+      {
+        elements: {
+          container 			: ".container",
+          containerInner		: ".container-inner",
+          videoPlayerContainer: ".video-player-container",
+          videoContainer 		: ".video-container",
+          playerContainer		: ".player-container",
+          mediaVideo 			: "#media-video",
+          playControl 		: ".play-control",
+          playButton 			: ".play-button",
+          pauseButton 		: ".pause-button",
+          volumeControl 		: ".volume-control",
+          volumeButton 		: ".volume-button",
+          volumeButtonMute 	: ".volume-button-mute",
+          progress 			: ".progress",
+          progressOver 		: ".progress-over",
+          progressHidden 		: ".progress-hidden",
+          progressBackground 	: ".progress-background",
+          indicator 			: ".indicator",
+          fullScreenButton	: ".fullscreen-button"
+        },
+      
+        isPlay 		: true,
+        isVolume 	: true,
+        isEnd		: false,
+        progressBarHeight : 100,
+      
+        init: function(){
+          mainFunction.defaultSettings();
+          mainFunction.clickSettings();
+          mainFunction.playControlVideo();
+          mainFunction.volumeControlVideo();
+          mainFunction.progressControlVideo();
+          mainFunction.mouseHideControl();
+        },
+      
+        defaultSettings: function(){
+      
+          $(mainFunction.elements.mediaVideo)[0].controls = false;
+      
+          $(window).on("resize", onResize);
+      
+          function onResize(){
+            $(mainFunction.elements.progress).width( $(mainFunction.elements.playerContainer).width() - 223 );
+            $(mainFunction.elements.progressBackground).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
+            $(mainFunction.elements.progressHidden).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
+            mainFunction.progressBarHeight = $(mainFunction.elements.playerContainer).width() - 223 - 40;
+            $(mainFunction.elements.progressOver).css("width", String( (mainFunction.progressBarHeight / $(mainFunction.elements.mediaVideo)[0].duration) * $(mainFunction.elements.mediaVideo)[0].currentTime ));
+          }
+      
+          onResize();
+      
+        },
+      
+        clickSettings: function(){
+          $(mainFunction.elements.playControl).on("click", mainFunction.playControlVideo);
+          $(mainFunction.elements.volumeControl).on("click", mainFunction.volumeControlVideo);
+          $(mainFunction.elements.mediaVideo).on("click", mainFunction.playControlVideo);
+          $(mainFunction.elements.fullScreenButton).on("click", mainFunction.fullScreenControl);
+          $("body").on("keyup", function(e){ if(e.which == 27) { mainFunction.exitFullScreen(); } });
+        },
+      
+        fullScreenControl:function(){
+          
+          if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement)
+          {
+            if (document.documentElement.requestFullscreen)
+            {
+              document.documentElement.requestFullscreen();
+              mainFunction.onFullScreen();
+            }
+            else if (document.documentElement.msRequestFullscreen)
+            {
+              document.documentElement.msRequestFullscreen();
+              mainFunction.onFullScreen();
+            }
+            else if (document.documentElement.mozRequestFullScreen)
+            {
+              document.documentElement.mozRequestFullScreen();
+              mainFunction.onFullScreen();
+            }
+            else if (document.documentElement.webkitRequestFullscreen)
+            {
+              document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+              mainFunction.onFullScreen();
+            }
+          }
+          else
+          {
+            if (document.exitFullscreen)
+            {
+              document.exitFullscreen();
+              mainFunction.exitFullScreen();
+            }
+            else if(document.msExitFullscreen)
+            {
+              document.msExitFullscreen();
+              mainFunction.exitFullScreen();
+            }
+            else if (document.mozCancelFullScreen)
+            {
+              document.mozCancelFullScreen();
+              mainFunction.exitFullScreen();
+            }
+            else if (document.webkitExitFullscreen)
+            {
+              document.webkitExitFullscreen();
+              mainFunction.exitFullScreen();
+            }
+          }
+        },
+      
+        onFullScreen: function(){
+      
+          $(mainFunction.elements.progressOver).css("width", String( (mainFunction.progressBarHeight / $(mainFunction.elements.mediaVideo)[0].duration) * $(mainFunction.elements.mediaVideo)[0].currentTime ));
+          $(mainFunction.elements.container).css("display", "block");
+          $(mainFunction.elements.videoPlayerContainer).width("100%");
+          $(mainFunction.elements.videoPlayerContainer).height("100%");
+          $(mainFunction.elements.videoContainer).height("calc(100% - 40px)");
+          $(mainFunction.elements.progress).width( $(mainFunction.elements.playerContainer).width() - 223 );
+          $(mainFunction.elements.progressBackground).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
+          $(mainFunction.elements.progressHidden).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
+          mainFunction.progressBarHeight = $(mainFunction.elements.playerContainer).width() - 223 - 40;
+          $(".container-inner").css("display", "none");
+      
+        },
+      
+        exitFullScreen: function(){
+          
+          $(mainFunction.elements.container).css("display", "-webkit-box");
+          $(mainFunction.elements.container).css("display", "-moz-box");
+          $(mainFunction.elements.container).css("display", "-ms-flexbox");
+          $(mainFunction.elements.container).css("display", "-webkit-flex");
+          $(mainFunction.elements.container).css("display", "flex");
+          $(mainFunction.elements.videoPlayerContainer).width("648");
+          $(mainFunction.elements.videoPlayerContainer).height("350");
+          $(mainFunction.elements.videoContainer).height("310");
+          $(mainFunction.elements.progress).width( $(mainFunction.elements.playerContainer).width() - 223 );
+          $(mainFunction.elements.progressBackground).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
+          $(mainFunction.elements.progressHidden).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
+          mainFunction.progressBarHeight = $(mainFunction.elements.playerContainer).width() - 223 - 40;
+          $(mainFunction.elements.progressOver).css("width", String( (mainFunction.progressBarHeight / $(mainFunction.elements.mediaVideo)[0].duration) * $(mainFunction.elements.mediaVideo)[0].currentTime ));
+          $(".container-inner").css("display", "inherit");
+      
+        },
+      
+        mouseHideControl: function(){
+      
+          var mouseHide = setTimeout(onMouseHide, 3000);
+      
+          $(mainFunction.elements.containerInner).on("mousemove", function(){
+      
+            clearTimeout( mouseHide );
+      
+            onMouseShow();
+      
+          });
+      
+          $(mainFunction.elements.containerInner).on("mousemoveend", function(){
+      
+            clearTimeout( mouseHide );
+      
+            mouseHide = setTimeout(onMouseHide, 3000);
+      
+          });
+      
+          function onMouseHide(){ $("body").css("cursor", "none"); }
+      
+          function onMouseShow(){ $("body").css("cursor", "inherit"); }
+      
+        },
+      
+        playControlVideo: function(){
+          if(mainFunction.isPlay) { $(mainFunction.elements.mediaVideo)[0].play(); } else { $(mainFunction.elements.mediaVideo)[0].pause(); }
+          $(mainFunction.elements.playButton).css("display", ( (mainFunction.isPlay) ? "none" : "table-cell" ) );
+          $(mainFunction.elements.pauseButton).css("display", ( (!mainFunction.isPlay) ? "none" : "table-cell" ) );
+          mainFunction.isPlay = !mainFunction.isPlay;
+          mainFunction.isEnd = false;
+        },
+      
+        volumeControlVideo: function(){
+          $(mainFunction.elements.mediaVideo)[0].muted = !mainFunction.isVolume;
+          $(mainFunction.elements.volumeButtonMute).css("display", ( (mainFunction.isVolume) ? "none" : "table-cell" ) );
+          $(mainFunction.elements.volumeButton).css("display", ( (!mainFunction.isVolume) ? "none" : "table-cell" ) );
+          mainFunction.isVolume = !mainFunction.isVolume;
+        },
+      
+        progressControlVideo: function(){
+      
+          var mouseX 			= 0;
+          var isDown 			= false;
+          var currentMinute 	= 0;
+          var currentSecond 	= 0;
+          var mediaPlayer 	= $(mainFunction.elements.mediaVideo)[0];
+      
+          mediaPlayer.addEventListener("timeupdate", onProgressVideo, false);
+      
+          function onProgressVideo(){
+            $(mainFunction.elements.progressOver).css("width", String( (mainFunction.progressBarHeight / mediaPlayer.duration) * mediaPlayer.currentTime ));
+            videoEndControl();
+            setIndicator(mediaPlayer.currentTime, mediaPlayer.duration);
+          }
+      
+          function videoEndControl(){
+            if(mediaPlayer.currentTime >= mediaPlayer.duration)
+            {
+              mainFunction.isPlay = false;
+              mainFunction.playControlVideo();
+              mainFunction.isEnd = true;
+            }
+          }
+      
+          function setIndicator(current, duration){
+            var durationMinute 		= Math.floor(duration / 60);
+            var durationSecond 		= Math.floor(duration - durationMinute * 60);
+            var durationLabel 		= durationMinute + ":" + durationSecond;
+            currentSecond 			= Math.floor(current);
+            currentMinute 			= Math.floor(currentSecond / 60);
+            currentSecond 			= currentSecond - ( currentMinute * 60 );
+            currentSecond 			= ( String(currentSecond).length > 1 ) ? currentSecond : ( String("0") + currentSecond );
+            var currentLabel 		= currentMinute + ":" + currentSecond;
+            var indicatorLabel 		= currentLabel + " / " + durationLabel;
+            $(mainFunction.elements.indicator).text( indicatorLabel );
+          }
+      
+          $(mainFunction.elements.progressHidden).on("mousemove", onProgressHiddenMouseMove);
+      
+          function onProgressHiddenMouseMove(e){
+            var parentOffset 	= $(this).parent().offset(); 
+            mouseX 				= Math.floor( e.pageX - parentOffset.left - 20 );
+            if(isDown) { mediaPlayer.currentTime = (mediaPlayer.duration / mainFunction.progressBarHeight) * mouseX; }
+          }
+      
+          $(mainFunction.elements.progressHidden).on("click", function(){ if(!isDown) { mediaPlayer.currentTime = (mediaPlayer.duration / mainFunction.progressBarHeight) * mouseX; } });
+      
+          $(mainFunction.elements.progressHidden).on("mousedown", onProgressHiddenMouseDown);
+      
+          function onProgressHiddenMouseDown(){
+      
+            isDown = true;
+      
+            mediaPlayer.currentTime = (mediaPlayer.duration / mainFunction.progressBarHeight) * mouseX;
+      
+            $(mainFunction.elements.mediaVideo)[0].pause();
+          }
+      
+          $(mainFunction.elements.progressHidden).on("mouseup", function(){ isDown = false; if(!mainFunction.isEnd) {  mainFunction.isPlay = true; mainFunction.playControlVideo(); } });
+      
+          $(mainFunction.elements.progressHidden).on("mouseout", function(){ isDown = false; if(!mainFunction.isEnd) {  mainFunction.isPlay = true; mainFunction.playControlVideo(); } });
+      
+        }
+      };
+      
+      $(document).on("ready", mainFunction.init);
+      
+      (function ($) {
+          var timeout;
+          $(document).on('mousemove', function (event) {
+              if (timeout !== undefined) {
+                  window.clearTimeout(timeout);
+              }
+              timeout = window.setTimeout(function () {
+                  $(event.target).trigger('mousemoveend');
+              }, 100);
+          });
+      }(jQuery));
+    </script>
+
+
+
+
+</body>
+
+</html>
