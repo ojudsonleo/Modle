@@ -1,6 +1,16 @@
 from django.shortcuts import render
 from message.models import message
-from django.views.generic import ListView
+from portfolio.models import profile
+from django.views.generic import ListView, CreateView
+
+class profile(ListView):
+    model=profile
+    template_name = "account-profile.html"
+
+class Add_profile(CreateView):
+    model=profile
+    template_name = "add-profile.html"
+    fields = "__all__"
 
 class index(ListView):
     model=message

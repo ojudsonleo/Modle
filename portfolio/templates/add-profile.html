@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Account Settings - Profile - SB Admin Pro</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="/static/assets/img/favicon.png" />
+        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+ 
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="/static/assets/img/favicon.png" />
+        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="nav-fixed">
+        <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+            <!-- Sidenav Toggle Button-->
+            <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+            <!-- Navbar Brand-->
+            <!-- * * Tip * * You can use text or an image for your navbar brand.-->
+            <!-- * * * * * * When using an image, we recommend the SVG format.-->
+            <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
+            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/">Modle</a>
+            <!-- Navbar Search Input-->
+            <!-- * * Note: * * Visible only on and above the lg breakpoint-->
+            <form class="form-inline me-auto d-none d-lg-block me-3">
+                <div class="input-group input-group-joined input-group-solid">
+                    <input class="form-control pe-0" type="search" placeholder="Search" aria-label="Search" />
+                    <div class="input-group-text"><i data-feather="search"></i></div>
+                </div>
+            </form>
+            <!-- Navbar Items-->
+            <ul class="navbar-nav align-items-center ms-auto">
+                <!-- Documentation Dropdown-->
+                
+                <!-- Navbar Search Dropdown-->
+                <!-- * * Note: * * Visible only below the lg breakpoint-->
+                <li class="nav-item dropdown no-caret me-3 d-lg-none">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="searchDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="search"></i></a>
+                    <!-- Dropdown - Search-->
+                    <div class="dropdown-menu dropdown-menu-end p-3 shadow animated--fade-in-up" aria-labelledby="searchDropdown">
+                        <form class="form-inline me-auto w-100">
+                            <div class="input-group input-group-joined input-group-solid">
+                                <input class="form-control pe-0" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                                <div class="input-group-text"><i data-feather="search"></i></div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <!-- Alerts Dropdown-->
+                <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="bell"></i></a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
+                        <h6 class="dropdown-header dropdown-notifications-header">
+                            <i class="me-2" data-feather="bell"></i>
+                            Alerts Center
+                        </h6>
+                        {% for message in object_list %}
+                        <a class="dropdown-item dropdown-notifications-item" href="#!">
+                            <div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div>
+                            <div class="dropdown-notifications-item-content">
+                                <div class="dropdown-notifications-item-content-details">{{ message.date }}</div>
+                                <div class="dropdown-notifications-item-content-text">{{ message.alert }}</div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <!-- Messages Dropdown-->
+                <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="mail"></i></a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownMessages">
+                        <h6 class="dropdown-header dropdown-notifications-header">
+                            <i class="me-2" data-feather="mail"></i>
+                            Message Center
+                        </h6>
+                        {% for message in object_list %}
+                            <a class="dropdown-item dropdown-notifications-item" href="#!">
+                                <img class="dropdown-notifications-item-img" src="/static/assets/img/illustrations/profiles/profile-2.png" />
+                                <div class="dropdown-notifications-item-content">
+                                    <div class="dropdown-notifications-item-content-text">{{ message.message }}</div>
+                                    <div class="dropdown-notifications-item-content-details">{{ request.user }}</div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                       </div>
+                </li>
+                <!-- User Dropdown-->
+                <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="/static/assets/img/illustrations/profiles/profile-1.png" /></a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
+                        <h6 class="dropdown-header d-flex align-items-center">
+                            <img class="dropdown-user-img" src="/static/assets/img/illustrations/profiles/profile-1.png" />
+                            <div class="dropdown-user-details">
+                                <div class="dropdown-user-details-name">{{ request.user }}</div>
+                                <div class="dropdown-user-details-email">{{ request.user }}@gmail.com</div>
+                            </div>
+                        </h6>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#!">
+                            <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
+                            Account
+                        </a>
+                        <a class="dropdown-item" href="/login">
+                            <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sidenav shadow-right sidenav-light">
+                    <div class="sidenav-menu">
+                        <div class="nav accordion" id="accordionSidenav">
+                            <!-- Sidenav Menu Heading (Account)-->
+                            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                            <div class="sidenav-menu-heading d-sm-none">Account</div>
+                            <!-- Sidenav Link (Alerts)-->
+                            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                            <a class="nav-link d-sm-none" href="#!">
+                                <div class="nav-link-icon"><i data-feather="bell"></i></div>
+                                Alerts
+                                <span class="badge bg-warning-soft text-warning ms-auto">4 New!</span>
+                            </a>
+                            <!-- Sidenav Link (Messages)-->
+                            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                            <a class="nav-link d-sm-none" href="#!">
+                                <div class="nav-link-icon"><i data-feather="mail"></i></div>
+                                Messages
+                                <span class="badge bg-success-soft text-success ms-auto">2 New!</span>
+                            </a>
+                            <!-- Sidenav Menu Heading (Core)-->
+                            
+                            <!-- Sidenav Heading (App Views)-->
+                            <div class="sidenav-menu-heading">App Views</div>
+                            <!-- Sidenav Accordion (Pages)-->
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                                apps
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
+                                <a class="nav-link" href="WebTerminal">
+                                    <div class="nav-link-icon"><img src="/static/cmd.png" height="30px"></i></div>
+                                    Web Terminal
+                                </a>
+                                <a class="nav-link" href="">
+                                    <div class="nav-link-icon"><img src="/static/profile.jpeg" height="30px"></i></div>
+                                    profile
+                                </a>
+                                <a class="nav-link" href="/git">
+                                    <div class="nav-link-icon"><img src="/static/git.png" height="30px"></i></div>
+                                    git repo
+                                </a>
+                            </div>
+                            <!-- Sidenav Accordion (Flows)-->
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
+                                <div class="nav-link-icon"><i data-feather="repeat"></i></div>
+                                Flows
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav">
+                                </nav>
+                            </div>
+                            <!-- Sidenav Heading (UI Toolkit)-->
+                            <div class="sidenav-menu-heading">UI Toolkit</div>
+                            <!-- Sidenav Accordion (Layout)-->
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="nav-link-icon"><i data-feather="layout"></i></div>
+                                Downloads
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" data-bs-parent="#accordionSidenav">
+                                <a class="nav-link" href="/static/setup.py" download>
+                                    <div class="nav-link-icon"><img src="/static/cmd.png" height="30px"></i></div>
+                                    download setupfile
+                                </a>
+                            </div>
+                            <!-- Sidenav Heading (Addons)-->
+                            <div class="sidenav-menu-heading">Plugins</div>
+                            <!-- Sidenav Link (Charts)-->
+                            <a class="nav-link" href="/ide/Python">
+                                <div class="nav-link-icon"><img src="/static/python-logo.8eb72ea6927b.png" height="30px"></i></div>
+                                Python editor
+                            </a>
+                            <!-- Sidenav Link (Tables)-->
+                            <a class="nav-link" href="/ide/Graphql">
+                                <div class="nav-link-icon"><img src="/static/download.jpeg" height="30px"></i></div>
+                                Graphql editor
+                            </a>
+                        </div>
+                        <!-- Sidenav Link (Tables)-->
+                        <a class="nav-link" href="cloud_os/">
+                            <div class="nav-link-icon"><img src="/static/images.png" height="30px"></i></div>
+                            Cloud Os
+                        </a>
+                    </div>
+                    <!-- Sidenav Footer-->
+                    <div class="sidenav-footer">
+                        <div class="sidenav-footer-content">
+                            <div class="sidenav-footer-subtitle">Logged in as:</div>
+                            <div class="sidenav-footer-title">{{ request.user }}</div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+                        <div class="container-xl px-4">
+                            <div class="page-header-content pt-4">
+                                <div class="row align-items-center justify-content-between">
+                                    <div class="col-auto mt-4">
+                                        <h1 class="page-header-title">
+                                            <div class="page-header-icon"><i data-feather="activity"></i></div>
+                                            Dashboard
+                                        </h1>
+                                        <a href="/static/setup.py" download>download setupfile</a>
+                                        <div class="page-header-subtitle">Example dashboard overview and content summary</div>
+                                    </div>
+                                    <div class="col-12 col-xl-auto mt-4">
+                                        <div class="input-group input-group-joined border-0" style="width: 16.5rem">
+                                            <span class="input-group-text"><i class="text-primary" data-feather="calendar"></i></span>
+                                            <input class="form-control ps-0 pointer" id="litepickerRangePlugin" placeholder="Select date range..." />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- Main page content-->
+                    <div class="container-xl px-4 mt-4">
+                        <!-- Account page navigation-->
+                        <nav class="nav nav-borders">
+                            <a class="nav-link active ms-0" href="account-profile.html">Profile</a>
+                        </nav>
+                        <hr class="mt-0 mb-4" />
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <!-- Profile picture card-->
+                                <div class="card mb-4 mb-xl-0">
+                                    <table>
+
+                                        
+                                </div>
+
+                            </div>
+                            <div class="col-xl-8">
+                                <!-- Account details card-->
+                                <div class="card mb-4">
+                                    <div class="card-header">Account</div>
+                                    <div class="card-body">
+                                        <form  method="POST">
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+                                        
+                                        <button>Create</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="footer-admin mt-auto footer-light">
+                    <div class="container-xl px-4">
+                        <div class="row">
+                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                            <div class="col-md-6 text-md-end small">
+                                <a href="#!">Privacy Policy</a>
+                                &middot;
+                                <a href="#!">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script>
+            /*!
+    * Start Bootstrap - SB Admin Pro v2.0.0 (https://shop.startbootstrap.com/product/sb-admin-pro)
+    * Copyright 2013-2021 Start Bootstrap
+    * Licensed under SEE_LICENSE (https://github.com/StartBootstrap/sb-admin-pro/blob/master/LICENSE)
+    */
+    window.addEventListener('DOMContentLoaded', event => {
+        // Activate feather
+        feather.replace();
+    
+        // Enable tooltips globally
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    
+        // Enable popovers globally
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl);
+        });
+    
+        // Activate Bootstrap scrollspy for the sticky nav component
+        const stickyNav = document.body.querySelector('#stickyNav');
+        if (stickyNav) {
+            new bootstrap.ScrollSpy(document.body, {
+                target: '#stickyNav',
+                offset: 82,
+            });
+        }
+    
+        // Toggle the side navigation
+        const sidebarToggle = document.body.querySelector('#sidebarToggle');
+        if (sidebarToggle) {
+            // Uncomment Below to persist sidebar toggle between refreshes
+            // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+            //     document.body.classList.toggle('sidenav-toggled');
+            // }
+            sidebarToggle.addEventListener('click', event => {
+                event.preventDefault();
+                document.body.classList.toggle('sidenav-toggled');
+                localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sidenav-toggled'));
+            });
+        }
+    
+        // Close side navigation when width < LG
+        const sidenavContent = document.body.querySelector('#layoutSidenav_content');
+        if (sidenavContent) {
+            sidenavContent.addEventListener('click', event => {
+                const BOOTSTRAP_LG_WIDTH = 992;
+                if (window.innerWidth >= 992) {
+                    return;
+                }
+                if (document.body.classList.contains("sidenav-toggled")) {
+                    document.body.classList.toggle("sidenav-toggled");
+                }
+            });
+        }
+    
+        // Add active state to sidbar nav links
+        let activatedPath = window.location.pathname.match(/([\w-]+\.html)/, '$1');
+    
+        if (activatedPath) {
+            activatedPath = activatedPath[0];
+        } else {
+            activatedPath = 'index.html';
+        }
+    
+        const targetAnchors = document.body.querySelectorAll('[href="' + activatedPath + '"].nav-link');
+    
+        targetAnchors.forEach(targetAnchor => {
+            let parentNode = targetAnchor.parentNode;
+            while (parentNode !== null && parentNode !== document.documentElement) {
+                if (parentNode.classList.contains('collapse')) {
+                    parentNode.classList.add('show');
+                    const parentNavLink = document.body.querySelector(
+                        '[data-bs-target="#' + parentNode.id + '"]'
+                    );
+                    parentNavLink.classList.remove('collapsed');
+                    parentNavLink.classList.add('active');
+                }
+                parentNode = parentNode.parentNode;
+            }
+            targetAnchor.classList.add('active');
+        });
+    });
+    
+        </script>
+    </body>
+</html>
