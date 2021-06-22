@@ -104,7 +104,7 @@
                             <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                             Account
                         </a>
-                        <a class="dropdown-item" href="/login">
+                        <a class="dropdown-item" href="/">
                             <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                             Logout
                         </a>
@@ -145,23 +145,35 @@
                                 <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
-                                <a class="nav-link" href="WebTerminal">
+                                <a class="nav-link" href="/WebTerminal">
                                     <div class="nav-link-icon"><img src="static/cmd.png" height="30px"></i></div>
                                     Web Terminal
+                                </a>
+                                <a class="nav-link" href="/profile">
+                                    <div class="nav-link-icon"><img src="static/profile.jpeg" height="30px"></i></div>
+                                    profile
                                 </a>
                                 <a class="nav-link" href="/git">
                                     <div class="nav-link-icon"><img src="static/git.png" height="30px"></i></div>
                                     git repo
                                 </a>
+                                <a class="nav-link" href="/project">
+                                    <div class="nav-link-icon"><img src="static/folder.jpeg" height="30px"></i></div>
+                                    projects
+                                </a>
                             </div>
                             <!-- Sidenav Accordion (Flows)-->
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
                                 <div class="nav-link-icon"><i data-feather="repeat"></i></div>
-                                Flows
+                                author
                                 <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/register">
+                                        <div class="nav-link-icon"><img src="static/new_user.png" height="30px"></i></div>
+                                        register
+                                    </a>
                                 </nav>
                             </div>
                             <!-- Sidenav Heading (UI Toolkit)-->
@@ -177,7 +189,19 @@
                                     <div class="nav-link-icon"><img src="static/cmd.png" height="30px"></i></div>
                                     download setupfile
                                 </a>
+                            </div><a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="nav-link-icon"><i data-feather="layout"></i></div>
+                                django
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" data-bs-parent="#accordionSidenav">
+                                <a class="nav-link" href="/admin">
+                                    <div class="nav-link-icon"><img src="/static/cmd.png" height="30px"></i></div>
+                                    admin
+                                </a>
                             </div>
+
+                            
                             <!-- Sidenav Heading (Addons)-->
                             <div class="sidenav-menu-heading">Plugins</div>
                             <!-- Sidenav Link (Charts)-->
@@ -218,7 +242,7 @@
                                             Dashboard
                                         </h1>
                                         <a href="/static/setup.py" download>download setupfile</a>
-                                        <div class="page-header-subtitle">Example dashboard overview and content summary</div>
+                                        <div class="page-header-subtitle">welcome to modle you can dowonload the server by clickin</div>
                                     </div>
                                     <div class="col-12 col-xl-auto mt-4">
                                         <div class="input-group input-group-joined border-0" style="width: 16.5rem">
@@ -239,7 +263,26 @@
                                         <div class="row align-items-center">
                                             <div class="col-xl-8 col-xxl-12">
                                                 <div class="text-center text-xl-start text-xxl-center mb-4 mb-xl-0 mb-xxl-4">
-                                                    <h1 class="text-primary">Welcome  {{ request.user }} to Modle!</h1>
+                                                    <h1 class="text-primary">Welcome  {{ request.user }} to Modle!</h1><div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="exampleModalToggleLabel">setup</h5>
+                                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-dialog modal-xl">thank you for downloading the server</div>
+<div class="modal-dialog modal-lg"></div>
+<div class="modal-dialog modal-sm"></div>
+                                                            <div class="modal-body">
+                                                                click dowonload button to download setup.py file and run the file and it will ask questions you answer it and server will sucessfully installed and it will run th server also and you go to link
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <a class="btn btn-primary" href="/static/setup.py" download>Dowonload</a>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Dowonload Setup File</a>
                                                     <p class="text-gray-700 mb-0">Browse our fully designed UI toolkit! Browse our prebuilt app pages, components, and utilites, and be sure to look at our full documentation!</p>
                                                 </div>
                                             </div>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Account Settings - Profile - SB Admin Pro</title>
+        <title>Projects</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
         <link href="/static/css/styles.css" rel="stylesheet" />
@@ -109,7 +109,7 @@
                             <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                             Account
                         </a>
-                        <a class="dropdown-item" href="/login">
+                        <a class="dropdown-item" href="/">
                             <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                             Logout
                         </a>
@@ -162,15 +162,23 @@
                                     <div class="nav-link-icon"><img src="/static/git.png" height="30px"></i></div>
                                     git repo
                                 </a>
+                                <a class="nav-link" href="/project">
+                                    <div class="nav-link-icon"><img src="static/folder.jpeg" height="30px"></i></div>
+                                    projects
+                                </a>
                             </div>
                             <!-- Sidenav Accordion (Flows)-->
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
                                 <div class="nav-link-icon"><i data-feather="repeat"></i></div>
-                                Flows
+                                author
                                 <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/register">
+                                        <div class="nav-link-icon"><img src="/static/new_user.png" height="30px"></i></div>
+                                        register
+                                    </a>
                                 </nav>
                             </div>
                             <!-- Sidenav Heading (UI Toolkit)-->
@@ -237,7 +245,6 @@
                                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                                             Dashboard
                                         </h1>
-                                        <a href="/static/setup.py" download>download setupfile</a>
                                         <div class="page-header-subtitle">Example dashboard overview and content summary</div>
                                     </div>
                                     <div class="col-12 col-xl-auto mt-4">
@@ -254,31 +261,27 @@
                     <div class="container-xl px-4 mt-4">
                         <!-- Account page navigation-->
                         <nav class="nav nav-borders">
-                            <a class="nav-link active ms-0" href="account-profile.html">Profile</a>
+                            <a href="{% url 'project_list' %}">back</a>
                         </nav>
                         <hr class="mt-0 mb-4" />
                         <div class="row">
                             <div class="col-xl-4">
-                                <!-- Profile picture card-->
-                                <div class="card mb-4 mb-xl-0">
-                                    <table>
+                                <div class='form-group'>
+                                {% csrf_token %}
+                                <h1>project : {{ project.project_name }}</h1><br/>
+                                if you are working with django go to your setings.py and in SECRET_KEY apply this <br/>code : "'{{ project.project_name }}-insecure-7o8cevk$%y6$ob9(bjb^ab-m+#h@0q-b8y=ovzj!*+dc1+k9(a"
 
-                                        
-                                </div>
+                            <button class="btn btn-secondary" method="POST">Delete</button>
+                            </div>
+                            
 
                             </div>
+
+                            </div>
+
                             <div class="col-xl-8">
                                 <!-- Account details card-->
-                                <div class="card mb-4">
-                                    <div class="card-header">Account</div>
-                                    <div class="card-body">
-                                        <form  method="POST">
-                                            {% csrf_token %}
-                                            {{ form.as_p }}
-                                        
-                                        <button>Create</button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

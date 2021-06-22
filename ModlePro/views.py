@@ -2,6 +2,12 @@ from django.shortcuts import render
 from message.models import message
 from portfolio.models import profile
 from django.views.generic import ListView, CreateView
+from django.contrib.auth.models import User
+
+class register(CreateView):
+    model = User
+    template_name = "create_User.html"
+    fields = "__all__"
 
 class profile(ListView):
     model=profile
@@ -22,8 +28,6 @@ def graphql(request):
     return render(request, "graphql.html")
 def python(request):
     return render(request, "python.html")
-def register(request):
-    return render(request, "register.html")
 def login(request):
     return render(request, "login.html")
 def os(request):

@@ -17,7 +17,8 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', account_profile.as_view(), name='profile'),
-    path('account-profile.html', account_profile.as_view()),
-    path('article/Create', add_profile.as_view(), name="add_profile"),
+    path('', project_home.as_view(), name="project_list"),
+    path('/article/Create', CreateProject.as_view(), name="add_project"),
+    path('/article/<int:pk>/remove', DeleteProject.as_view(), name="DeleteProject"),
+    path('/article/<int:pk>', Info.as_view(), name="InfoProject"),
 ]
